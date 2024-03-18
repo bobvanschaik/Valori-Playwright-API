@@ -1,9 +1,7 @@
 import { APIRequestContext, test, expect } from '@playwright/test';
 
 const APPID = '969437dd660b6c2251c86d58ae2458c5';
-const Cities = [
-    { city: 'Utrecht', expectedText: 'Provincie Utrecht' },
-    { city: 'Amsterdam', expectedText: 'Amsterdam' }
+
 
 let apiContext: APIRequestContext;
 
