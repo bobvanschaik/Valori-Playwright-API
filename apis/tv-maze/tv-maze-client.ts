@@ -1,10 +1,12 @@
-import { APIRequestContext } from "@playwright/test";
+import { APIRequestContext, APIResponse } from "@playwright/test";
 
 export class TvMazeClient {
     private readonly _context: APIRequestContext;
     
     constructor(context: APIRequestContext) {
         this._context = context;
+        this._appId = process.env.!;
+
     }
 
     async getSerie(name: string) {
