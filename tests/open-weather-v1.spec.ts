@@ -38,17 +38,11 @@ test('Opdracht 3', async () => {
 const cities = [
     {name: 'Utrecht', id: 1234},
     {name: 'Amsterdam', id:4321}
+    // Den Haag, {correcte id hier}
+    //Groningen, {correcte id hier}
 ];
 for (const city of cities) {
     test(`testing with ${city.name})`, async () => {
-        const test = city.id;
-        const blaat = test;
     });
 
 }
-
-// City, Id
-// Amsterdam, {correcte id hier}
-// Rotterdam, {correcte id hier}
-// Den Haag, {correcte id hier}
-//Groning, {correcte id hier} 
