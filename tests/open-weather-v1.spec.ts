@@ -1,6 +1,9 @@
 import { APIRequestContext, test, expect } from '@playwright/test';
 
 const APPID = '969437dd660b6c2251c86d58ae2458c5';
+const Cities = [
+    { city: 'Utrecht', expectedText: 'Provincie Utrecht' },
+    { city: 'Amsterdam', expectedText: 'Amsterdam' }
 
 let apiContext: APIRequestContext;
 
@@ -14,11 +17,33 @@ test.afterAll(async ({ }) => {
     await apiContext.dispose();
   });
 
-test('Opdracht 1', async () => {
-    const response = await apiContext.get('/data/2.5/weather?q=Utrecht&appid=')
+test('Opdracht 2', async () => {
+    const response = await apiContext.get(`/data/2.5/weather?q=Utrecht&appid=${APPID}`);
     
-    expect(response.status()).toBe(401);
+    expect(response.status()).toBe(200);
     
     const body = await response.text();
-    expect(body).toContain('Invalid API key');
+    expect(body).toContain('Provincie Utrecht');
 });
+
+test('Opdracht 3', async () => {
+    const response = await apiContext.get(`/data/2.5/weather?q=Amsterdam&appid=${APPID}`);
+    
+    expect(response.status()).toBe(200);
+    
+    const body = await response.text();
+    expect(body).toContain('Amsterdam');
+});
+
+const cities = ['Utrecht', 'Amsterdam'];
+for (const Cities of APPID) {
+  test(`Opdracht 3`, async () => {
+    // ...
+  });
+}
+
+// City, Id
+// Amsterdam, {correcte id hier}
+// Rotterdam, {correcte id hier}
+// Den Haag, {correcte id hier}
+//Groning, {correcte id hier} 
