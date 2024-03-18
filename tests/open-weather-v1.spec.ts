@@ -35,11 +35,16 @@ test('Opdracht 3', async () => {
     expect(body).toContain('Amsterdam');
 });
 
-const cities = ['Utrecht', 'Amsterdam'];
-for (const Cities of APPID) {
-  test(`Opdracht 3`, async () => {
-    // ...
-  });
+const cities = [
+    {name: 'Utrecht', id: 1234},
+    {name: 'Amsterdam', id:4321}
+];
+for (const city of cities) {
+    test(`testing with ${city.name})`, async () => {
+        const test = city.id;
+        const blaat = test;
+    });
+
 }
 
 // City, Id
