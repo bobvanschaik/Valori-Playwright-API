@@ -34,13 +34,18 @@ test('Opdracht 3', async () => {
 });
 
 const cities = [
-    {name: 'Utrecht', id: 1234},
-    {name: 'Amsterdam', id:4321}
-    // Den Haag, {correcte id hier}
-    //Groningen, {correcte id hier}
-];
-for (const city of cities) {
-    test(`testing with ${city.name})`, async () => {
+    {name: 'Amsterdam', id:2759794},
+    {name: 'Rotterdam', id:2747891},
+    {name: 'The Hague', id:2747373},
+    {name: 'Groningen', id:2755249}
+]
+for (const city of cities){
+    test(`Opdracht 4 - ${city.name}`, async () => {
+        const response = await apiContext.get(`/data/2.5/weather?q=${city.name}&appid=${APPID}`);
+        expect(response.status()).toBe(200);
+        const body = await response.json();
+        expect(body.name).toContain(`${city.name}`);
+        expect(body.id).toBe(city.id)
+        //expect(body.id)
     });
-
 }
