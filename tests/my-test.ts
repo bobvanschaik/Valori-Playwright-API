@@ -19,11 +19,10 @@ export const test = base.extend<MyFixtures>({
     tvMazeClient: async ({}, use) => {
         const context = await request.newContext({
             baseURL: process.env.TV_MAZE_API_BASE_URL,
-            id: process.env.TV_MAZE_BREAKING_BAD_ID,
-          });
-
+        });
+    
         await use(new TvMazeClient(context));
         context.dispose();
-    }
+    },
 });
 export { expect } from '@playwright/test';
